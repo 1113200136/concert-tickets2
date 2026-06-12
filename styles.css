@@ -24,14 +24,17 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  font-size: 18px;
+}
 
 body {
   font-family: 'Nunito', sans-serif;
   background: var(--bg);
   color: var(--navy);
   line-height: 1.65;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 h1,h2,h3,h4 { font-family: 'Baloo 2', cursive; line-height: 1.25; }
