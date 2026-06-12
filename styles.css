@@ -362,7 +362,7 @@ section { padding: 40px 0; }
 .script-line { margin-bottom: 9px; font-size: .93rem; line-height: 1.75; }
 .script-line .speaker { font-weight: 900; }
 .speaker.lily { color: #9B59B6; } .speaker.zoe { color: var(--blue); }
-.speaker.maya { color: var(--coral-dark); } .speaker.emma { color: #E67E22; }
+.speaker.maya { color: #27AE60; } .speaker.emma { color: #16A085; }
 .vocab-highlight { color: var(--coral-dark); font-weight: 900; }
 .stage-dir { font-style: italic; color: var(--gray); }
 
