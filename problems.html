@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problems — How to Buy Concert Tickets Online</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">🎫 <span>TICKETS</span> Online</a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Introduction</a></li>
+      <li class="dropdown">
+        <a href="scenes.html">Scenes ▾</a>
+        <div class="dropdown-menu">
+          <a href="scene1.html">Scene 1 — Prepare</a>
+          <a href="scene2.html">Scene 2 — Buy</a>
+          <a href="scene3.html">Scene 3 — Pick Up</a>
+        </div>
+      </li>
+      <li><a href="activities.html">Activities</a></li>
+      <li><a href="problems.html" class="active">Problems</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+  <section style="text-align:center; padding-bottom: 14px;">
+    <div class="ticket-title yellow">
+      <div class="tt-stub">⚠️</div>
+      <div class="tt-main">
+        <div class="tt-eyebrow">Plan Ahead</div>
+        <h2>Anticipated <span class="accent">Problems</span></h2>
+      </div>
+    </div>
+    <p class="section-sub" style="margin-top:0;">4 challenges we expected while filming — and how we solved each one 💪</p>
+  </section>
+
+  <!-- Problem 1 -->
+  <div class="problem-row">
+    <div class="pr-icon i1">🔐</div>
+    <div class="pr-prob">
+      <h4>Privacy &amp; Copyright Risk</h4>
+      <p>Real ticketing sites show copyrighted designs &amp; private data.</p>
+    </div>
+    <div class="pr-arrow">➜</div>
+    <div class="pr-sol">
+      <span class="ps-badge">SOLUTION</span>
+      <p>Build a <b>mock website</b> for filming — same flow, zero risk.</p>
+    </div>
+  </div>
+
+  <!-- Problem 2 -->
+  <div class="problem-row">
+    <div class="pr-icon i2">⏱️</div>
+    <div class="pr-prob">
+      <h4>Recap Pace Too Fast</h4>
+      <p>16 words in a rapid-fire recap may lose learners.</p>
+    </div>
+    <div class="pr-arrow">➜</div>
+    <div class="pr-sol">
+      <span class="ps-badge">SOLUTION</span>
+      <p><b>Rehearse the recap 5×</b> for a clear, steady rhythm.</p>
+    </div>
+  </div>
+
+  <!-- Problem 3 -->
+  <div class="problem-row">
+    <div class="pr-icon i3">🏪</div>
+    <div class="pr-prob">
+      <h4>Filming the FamilyMart Scene</h4>
+      <p>Stores don't always allow camera crews inside.</p>
+    </div>
+    <div class="pr-arrow">➜</div>
+    <div class="pr-sol">
+      <span class="ps-badge">SOLUTION</span>
+      <p>Film the <b>kiosk</b> quickly on-site, <b>recreate the counter</b> elsewhere.</p>
+    </div>
+  </div>
+
+  <!-- Problem 4 -->
+  <div class="problem-row">
+    <div class="pr-icon i4">📚</div>
+    <div class="pr-prob">
+      <h4>Too Many Vocabulary Words</h4>
+      <p>Sixteen new words could overwhelm learners.</p>
+    </div>
+    <div class="pr-arrow">➜</div>
+    <div class="pr-sol">
+      <span class="ps-badge">SOLUTION</span>
+      <p>Teach in context with <b>repeated exposure</b> across scenes &amp; exercises.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- visual summary -->
+  <section style="padding-top:0;">
+    <div style="display:grid; grid-template-columns: 300px 1fr; gap:28px; align-items:center; background:var(--white); border-radius:22px; padding:28px; box-shadow:var(--shadow);" class="prob-banner">
+      <img src="images/art-teacher.jpg" alt="Team member with clipboard planning ahead" style="border-radius:16px; max-width:100%;">
+      <div>
+        <h3 style="font-size:1.3rem; margin-bottom:8px;">🌟 The Takeaway</h3>
+        <p style="font-weight:700; color:var(--gray); margin-bottom:16px;">Good planning turns problems into creative solutions — every challenge made our teaching video better!</p>
+        <div class="vocab-pills">
+          <span class="vocab-pill">🔐 mock website</span>
+          <span class="vocab-pill blue">⏱️ rehearse 5×</span>
+          <span class="vocab-pill green">🏪 split the filming</span>
+          <span class="vocab-pill" style="background:var(--yellow-light); color:#9A7B1E;">📚 repeat exposure</span>
+        </div>
+      </div>
+    </div>
+    <style>@media (max-width:700px){ .prob-banner{ grid-template-columns:1fr !important; text-align:center; } .prob-banner img{ max-width:220px; margin:0 auto; } }</style>
+  </section>
+
+  <div class="page-nav">
+    <a href="activities.html">← Activities</a>
+    <a href="index.html">Back to Introduction →</a>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  🎫 How to Buy Concert Tickets Online · Group 10 · EFL Teaching Video Project ⭐
+</footer>
+
+</body>
+</html>
