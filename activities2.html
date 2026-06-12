@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Activities — How to Buy Concert Tickets Online</title>
+  <title>Worksheet 2 — How to Buy Concert Tickets Online</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,9 +22,14 @@
           <a href="scene3.html">Scene 3 — Pick Up</a>
         </div>
       </li>
-<a href="activities.html">Worksheet 1</a>
-<a href="activity2.html">Worksheet 2</a>
-<a href="activity3.html">Worksheet 3</a>
+      <li class="dropdown">
+        <a href="activity1.html" class="active">Activities ▾</a>
+        <div class="dropdown-menu">
+          <a href="activity1.html">Worksheet 1</a>
+          <a href="activity2.html">Worksheet 2</a>
+          <a href="activity3.html">Worksheet 3</a>
+        </div>
+      </li>
       <li><a href="problems.html">Problems</a></li>
     </ul>
   </div>
@@ -32,61 +37,47 @@
 
 <div class="container">
 
-  <section style="text-align:center; padding-bottom:10px;">
-    <div class="ticket-title">
-      <div class="tt-stub">📝</div>
-      <div class="tt-main">
-        <h2><span class="accent">Activities</span></h2>
-      </div>
+  <div class="ws-card">
+    <div class="ws-head">
+      <div class="ws-icon" style="background:var(--yellow-light)">💡</div>
+      <h3>Worksheet 2 — Fill in the Blank</h3>
     </div>
-    <p class="section-sub" style="margin-top:0;">Now, let's check what you remember — three exercises. Tap, choose, and check your answers!</p>
-  </section>
+    <p class="ws-instructions">Choose the correct word from the word bank for each blank. Each word is used once. Then press <b>Check Answers</b>!</p>
 
- ```html
-<!-- ============ WORKSHEET 2: FILL IN THE BLANK ============ -->
-<div class="ws-card">
-  <div class="ws-head">
-    <div class="ws-icon" style="background:var(--yellow-light)">💡</div>
-    <h3>Worksheet 2 — Fill in the Blank</h3>
+    <div class="word-bank">
+      <span class="wb-label">WORD BANK</span>
+      <span class="wbw">account</span><span>·</span>
+      <span class="wbw">password</span><span>·</span>
+      <span class="wbw">verify</span><span>·</span>
+      <span class="wbw">click</span><span>·</span>
+      <span class="wbw">sessions</span><span>·</span>
+      <span class="wbw">zone</span><span>·</span>
+      <span class="wbw">quantity</span><span>·</span>
+      <span class="wbw">verification code</span><span>·</span>
+      <span class="wbw">refresh</span><span>·</span>
+      <span class="wbw">paste</span>
+    </div>
+
+    <div class="fitb-grid" id="fitb-grid"></div>
+
+    <button class="check-btn" onclick="checkFitb()">✓ Check Answers</button>
+    <button class="reset-btn" onclick="initFitb()">↺ Reset</button>
+    <div class="ws-result" id="fitb-result"></div>
   </div>
 
-  <p class="ws-instructions">
-    Choose the correct word from the word bank for each blank.
-    Each word is used once. Then press <b>Check Answers</b>!
-  </p>
-
-  <div class="word-bank">
-    <span class="wb-label">WORD BANK</span>
-    <span class="wbw">account</span><span>·</span>
-    <span class="wbw">password</span><span>·</span>
-    <span class="wbw">verify</span><span>·</span>
-    <span class="wbw">click</span><span>·</span>
-    <span class="wbw">sessions</span><span>·</span>
-    <span class="wbw">zone</span><span>·</span>
-    <span class="wbw">quantity</span><span>·</span>
-    <span class="wbw">verification code</span><span>·</span>
-    <span class="wbw">refresh</span><span>·</span>
-    <span class="wbw">paste</span>
+  <div class="page-nav">
+    <a href="activity1.html">← Worksheet 1</a>
+    <a href="activity3.html">Worksheet 3 →</a>
   </div>
 
-  <div class="fitb-grid" id="fitb-grid"></div>
-
-  <button class="check-btn" onclick="checkFitb()">✓ Check Answers</button>
-  <button class="reset-btn" onclick="initFitb()">↺ Reset</button>
-
-  <div class="ws-result" id="fitb-result"></div>
 </div>
 
-<div class="page-nav">
-  <a href="activities.html">← Worksheet 1</a>
-  <a href="activity3.html">Worksheet 3 →</a>
-</div>
-```
-
+<footer class="site-footer">
+  🎫 How to Buy Concert Tickets Online · Group 10 · EFL Teaching Video Project ⭐
+</footer>
 
 <script>
-
-```javascript
+/* ============ WORKSHEET 2: FILL IN THE BLANK ============ */
 const fitbData = [
   {pre:'Before the sale, I must register an ', post:' on the website.', ans:'account', icon:'💻'},
   {pre:'My ', post:' is secret. I will never share it with my friends.', ans:'password', icon:'🔒'},
@@ -99,67 +90,34 @@ const fitbData = [
   {pre:'The page is loading slowly, but I must NOT ', post:' — I will lose my place in line!', ans:'refresh', icon:'🔄'},
   {pre:'I will ', post:' my credit card number from my notes — typing is too slow.', ans:'paste', icon:'📋'}
 ];
-
-const fitbOptions = [
-  'account',
-  'password',
-  'verify',
-  'click',
-  'sessions',
-  'zone',
-  'quantity',
-  'verification code',
-  'refresh',
-  'paste'
-];
+const fitbOptions = ['account','password','verify','click','sessions','zone','quantity','verification code','refresh','paste'];
 
 function initFitb() {
   const g = document.getElementById('fitb-grid');
   g.innerHTML = '';
-
   document.getElementById('fitb-result').textContent = '';
   document.getElementById('fitb-result').className = 'ws-result';
-
   fitbData.forEach((d,i) => {
     const div = document.createElement('div');
     div.className = 'fitb-item';
-
     let sel = '<select class="fitb-select" id="fitb-' + i + '"><option value="">— choose —</option>';
-
-    fitbOptions.forEach(o => {
-      sel += '<option value="' + o + '">' + o + '</option>';
-    });
-
+    fitbOptions.forEach(o => sel += '<option value="' + o + '">' + o + '</option>');
     sel += '</select>';
-
-    div.innerHTML =
-      '<span class="num">' + (i+1) + '</span><span>' +
-      d.icon + ' ' + d.pre + sel + d.post +
-      '</span>';
-
+    div.innerHTML = '<span class="num">' + (i+1) + '</span><span>' + d.icon + ' ' + d.pre + sel + d.post + '</span>';
     g.appendChild(div);
   });
 }
 
 function checkFitb() {
   let correct = 0;
-
   fitbData.forEach((d,i) => {
     const sel = document.getElementById('fitb-' + i);
     const item = sel.closest('.fitb-item');
-
     item.classList.remove('correct','incorrect');
-
-    if (sel.value === d.ans) {
-      item.classList.add('correct');
-      correct++;
-    } else {
-      item.classList.add('incorrect');
-    }
+    if (sel.value === d.ans) { item.classList.add('correct'); correct++; }
+    else { item.classList.add('incorrect'); }
   });
-
   const r = document.getElementById('fitb-result');
-
   if (correct === 10) {
     r.textContent = '🎉 Perfect score! 10 / 10 — you are ready for sale day!';
     r.className = 'ws-result good';
@@ -170,8 +128,6 @@ function checkFitb() {
 }
 
 initFitb();
-```
-
 </script>
 
 </body>
