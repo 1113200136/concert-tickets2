@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Activities — How to Buy Concert Tickets Online</title>
+  <title>Worksheet 3 — How to Buy Concert Tickets Online</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,7 +22,14 @@
           <a href="scene3.html">Scene 3 — Pick Up</a>
         </div>
       </li>
-      <li><a href="activities.html" class="active">Activities</a></li>
+      <li class="dropdown">
+        <a href="activity1.html" class="active">Activities ▾</a>
+        <div class="dropdown-menu">
+          <a href="activity1.html">Worksheet 1</a>
+          <a href="activity2.html">Worksheet 2</a>
+          <a href="activity3.html">Worksheet 3</a>
+        </div>
+      </li>
       <li><a href="problems.html">Problems</a></li>
     </ul>
   </div>
@@ -30,69 +37,6 @@
 
 <div class="container">
 
-  <section style="text-align:center; padding-bottom:10px;">
-    <div class="ticket-title">
-      <div class="tt-stub">📝</div>
-      <div class="tt-main">
-        <h2><span class="accent">Activities</span></h2>
-      </div>
-    </div>
-    <p class="section-sub" style="margin-top:0;">Now, let's check what you remember — three exercises. Tap, choose, and check your answers!</p>
-  </section>
-
-  <!-- ============ WORKSHEET 1: MATCHING ============ -->
-  <div class="ws-card">
-    <div class="ws-head">
-      <div class="ws-icon" style="background:var(--blue-light)">🔗</div>
-      <h3>Worksheet 1 — Match the Word</h3>
-      <div class="ws-score" id="match-score">0 / 10 matched</div>
-    </div>
-    <p class="ws-instructions">Tap an English word, then tap its Chinese meaning. Correct pairs turn green! 🟢</p>
-
-    <div class="match-board">
-      <div>
-        <div class="match-col-head mch-en">ENGLISH WORD</div>
-        <div id="match-en"></div>
-      </div>
-      <div>
-        <div class="match-col-head mch-zh">中文 MEANING</div>
-        <div id="match-zh"></div>
-      </div>
-    </div>
-    <div class="ws-result" id="match-result"></div>
-    <button class="reset-btn" onclick="initMatch()">↺ Reset</button>
-  </div>
-
-  <!-- ============ WORKSHEET 2: FILL IN THE BLANK ============ -->
-  <div class="ws-card">
-    <div class="ws-head">
-      <div class="ws-icon" style="background:var(--yellow-light)">💡</div>
-      <h3>Worksheet 2 — Fill in the Blank</h3>
-    </div>
-    <p class="ws-instructions">Choose the correct word from the word bank for each blank. Each word is used once. Then press <b>Check Answers</b>!</p>
-
-    <div class="word-bank">
-      <span class="wb-label">WORD BANK</span>
-      <span class="wbw">account</span><span>·</span>
-      <span class="wbw">password</span><span>·</span>
-      <span class="wbw">verify</span><span>·</span>
-      <span class="wbw">click</span><span>·</span>
-      <span class="wbw">sessions</span><span>·</span>
-      <span class="wbw">zone</span><span>·</span>
-      <span class="wbw">quantity</span><span>·</span>
-      <span class="wbw">verification code</span><span>·</span>
-      <span class="wbw">refresh</span><span>·</span>
-      <span class="wbw">paste</span>
-    </div>
-
-    <div class="fitb-grid" id="fitb-grid"></div>
-
-    <button class="check-btn" onclick="checkFitb()">✓ Check Answers</button>
-    <button class="reset-btn" onclick="initFitb()">↺ Reset</button>
-    <div class="ws-result" id="fitb-result"></div>
-  </div>
-
-  <!-- ============ WORKSHEET 3: ORDER THE STEPS ============ -->
   <div class="ws-card">
     <div class="ws-head">
       <div class="ws-icon" style="background:var(--purple-light)">🔢</div>
@@ -108,7 +52,7 @@
   </div>
 
   <div class="page-nav">
-    <a href="scene3.html">← Scene 3</a>
+    <a href="activity2.html">← Worksheet 2</a>
     <a href="problems.html">Problems →</a>
   </div>
 
@@ -119,124 +63,6 @@
 </footer>
 
 <script>
-/* ============ WORKSHEET 1: MATCHING ============ */
-const matchPairs = [
-  ['Refresh','重新整理'], ['Account','帳號'], ['Submit','提交'],
-  ['Quantity','張數'], ['Verify','驗證'], ['Paste','貼上'],
-  ['Session','場次'], ['Receipt','收據'], ['Password','密碼'], ['Zone','區域']
-];
-let selEn = null, matchedCount = 0;
-
-function shuffle(a) { return a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]); }
-
-function initMatch() {
-  matchedCount = 0; selEn = null;
-  document.getElementById('match-score').textContent = '0 / 10 matched';
-  document.getElementById('match-result').textContent = '';
-  document.getElementById('match-result').className = 'ws-result';
-
-  const enCol = document.getElementById('match-en');
-  const zhCol = document.getElementById('match-zh');
-  enCol.innerHTML = ''; zhCol.innerHTML = '';
-
-  matchPairs.forEach((p,i) => {
-    const b = document.createElement('button');
-    b.className = 'match-btn'; b.dataset.pair = i;
-    b.innerHTML = '<span style="width:24px;height:24px;flex-shrink:0;background:var(--blue);color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:900;">' + (i+1) + '</span> ' + p[0];
-    b.onclick = () => selectEn(b);
-    enCol.appendChild(b);
-  });
-
-  const letters = 'ABCDEFGHIJ';
-  shuffle(matchPairs.map((p,i)=>({zh:p[1],pair:i}))).forEach((item,j) => {
-    const b = document.createElement('button');
-    b.className = 'match-btn'; b.dataset.pair = item.pair;
-    b.innerHTML = '<span style="width:24px;height:24px;flex-shrink:0;background:var(--coral);color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:900;">' + letters[j] + '</span> ' + item.zh;
-    b.onclick = () => selectZh(b);
-    zhCol.appendChild(b);
-  });
-}
-
-function selectEn(btn) {
-  if (btn.classList.contains('matched')) return;
-  document.querySelectorAll('#match-en .match-btn').forEach(b=>b.classList.remove('selected'));
-  btn.classList.add('selected');
-  selEn = btn;
-}
-
-function selectZh(btn) {
-  if (btn.classList.contains('matched') || !selEn) return;
-  if (btn.dataset.pair === selEn.dataset.pair) {
-    btn.classList.add('matched'); selEn.classList.add('matched');
-    selEn.classList.remove('selected');
-    btn.disabled = true; selEn.disabled = true;
-    selEn = null;
-    matchedCount++;
-    document.getElementById('match-score').textContent = matchedCount + ' / 10 matched';
-    if (matchedCount === 10) {
-      const r = document.getElementById('match-result');
-      r.textContent = '🎉 Perfect! You matched all 10 words!';
-      r.className = 'ws-result good';
-    }
-  } else {
-    btn.classList.add('wrong'); selEn.classList.add('wrong');
-    setTimeout(() => {
-      btn.classList.remove('wrong');
-      if (selEn) selEn.classList.remove('wrong');
-    }, 380);
-  }
-}
-
-/* ============ WORKSHEET 2: FILL IN THE BLANK ============ */
-const fitbData = [
-  {pre:'Before the sale, I must register an ', post:' on the website.', ans:'account', icon:'💻'},
-  {pre:'My ', post:' is secret. I will never share it with my friends.', ans:'password', icon:'🔒'},
-  {pre:'The website will ', post:' my phone number by sending an SMS code.', ans:'verify', icon:'📱'},
-  {pre:'At 12:00, I will ', post:' the "Buy" button as fast as possible.', ans:'click', icon:'🖱️'},
-  {pre:'There are three ', post:' to choose from: Friday, Saturday, or Sunday.', ans:'sessions', icon:'📅'},
-  {pre:'I want a seat in the standing ', post:' near the stage.', ans:'zone', icon:'📍'},
-  {pre:'I want to buy two tickets, so the ', post:' is 2.', ans:'quantity', icon:'🔢'},
-  {pre:'The website shows squiggly letters. I must type the ', post:' to prove I am human.', ans:'verification code', icon:'🔡'},
-  {pre:'The page is loading slowly, but I must NOT ', post:' — I will lose my place in line!', ans:'refresh', icon:'🔄'},
-  {pre:'I will ', post:' my credit card number from my notes — typing is too slow.', ans:'paste', icon:'📋'}
-];
-const fitbOptions = ['account','password','verify','click','sessions','zone','quantity','verification code','refresh','paste'];
-
-function initFitb() {
-  const g = document.getElementById('fitb-grid');
-  g.innerHTML = '';
-  document.getElementById('fitb-result').textContent = '';
-  document.getElementById('fitb-result').className = 'ws-result';
-  fitbData.forEach((d,i) => {
-    const div = document.createElement('div');
-    div.className = 'fitb-item';
-    let sel = '<select class="fitb-select" id="fitb-' + i + '"><option value="">— choose —</option>';
-    fitbOptions.forEach(o => sel += '<option value="' + o + '">' + o + '</option>');
-    sel += '</select>';
-    div.innerHTML = '<span class="num">' + (i+1) + '</span><span>' + d.icon + ' ' + d.pre + sel + d.post + '</span>';
-    g.appendChild(div);
-  });
-}
-
-function checkFitb() {
-  let correct = 0;
-  fitbData.forEach((d,i) => {
-    const sel = document.getElementById('fitb-' + i);
-    const item = sel.closest('.fitb-item');
-    item.classList.remove('correct','incorrect');
-    if (sel.value === d.ans) { item.classList.add('correct'); correct++; }
-    else { item.classList.add('incorrect'); }
-  });
-  const r = document.getElementById('fitb-result');
-  if (correct === 10) {
-    r.textContent = '🎉 Perfect score! 10 / 10 — you are ready for sale day!';
-    r.className = 'ws-result good';
-  } else {
-    r.textContent = '📊 You got ' + correct + ' / 10 correct. Red blanks need another try!';
-    r.className = 'ws-result bad';
-  }
-}
-
 /* ============ WORKSHEET 3: ORDER ============ */
 const orderData = [
   {text:'Lily registers an <span class="order-vocab">ACCOUNT</span> 24 hours before the sale.', ans:1, icon:'💻'},
@@ -284,7 +110,7 @@ function checkOrder() {
   }
 }
 
-initMatch(); initFitb(); initOrder();
+initOrder();
 </script>
 
 </body>
