@@ -5,7 +5,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How to Buy Concert Tickets Online — Group 10</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .motive-card {
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+    }
+    .motive-split {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+    .ms-art {
+      flex: 0 0 35%;
+      max-width: 320px;
+    }
+    .ms-art img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+    .ms-body { flex: 1; }
+    .ms-body h3 {
+      font-size: 2rem;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+    .ms-body h3 .num {
+      background-color: #f18e8d; 
+      color: white;
+      width: 35px;
+      height: 35px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .reason-chips {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Forces 2 columns */
+      gap: 15px;
+    }
+    .reason-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .reason-chip.p1 { background-color: #fceaea; }
+    .reason-chip.p2 { background-color: #fcf4d9; }
+    .reason-chip.p3 { background-color: #e6f0fa; }
+    .reason-chip.p4 { background-color: #e3f5e3; }
+
+    @media (max-width: 768px) {
+      .motive-split { flex-direction: column; }
+      .reason-chips { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
+
 <body>
 
 <nav class="site-nav">
@@ -84,41 +154,30 @@
 
   <!-- ============ MOTIVATION ============ -->
   <section>
-    <div class="title-center">
-      <div class="ticket-title yellow">
-        <div class="tt-stub">💡</div>
-        <div class="tt-main">
-          <h2><span class="accent">Motivation</span></h2>
+   <section>
+    <div class="motive-card">
+      <div class="motive-split">
+        <div class="ms-art">
+          <img src="images/art-fan-phone.jpg" alt="Excited fan with phone at a concert">
         </div>
-      </div>
-    </div>
-
-    <div class="motive-split">
-      <div class="ms-art"><img src="images/art-fan-phone.jpg" alt="Excited fan with phone at a concert"></div>
-      <div class="ms-body">
-<h3 style="font-size:1.8rem;">
-  <span class="num">1</span> Why this topic?
-</h3>
-        <div class="reason-chips">
-          <div class="reason-chip p1"><span class="re">💗</span> Teens <b>actually care</b> about concerts</div>
-          <div class="reason-chip p2"><span class="re">⏱️</span> One wrong word = <b>no ticket</b></div>
-          <div class="reason-chip p3"><span class="re">🌐</span> Ticket sites are <b>partly in English</b></div>
-          <div class="reason-chip p4"><span class="re">🚫</span> No time to translate on <b>sale day</b></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="motive-split flip">
-      <div class="ms-art"><img src="images/art-school-screen.jpg" alt="Student bridging school and screen English"></div>
-      <div class="ms-body">
-<h3 style="font-size:1.8rem;">
-  <span class="num">2</span> Why important for EFL learners?
-</h3>
-        <div class="reason-chips">
-          <div class="reason-chip p3"><span class="re">🌉</span> Bridges <b>school + screen</b> English</div>
-          <div class="reason-chip p4"><span class="re">🏯</span> Built on real <b>Taiwan culture</b></div>
-          <div class="reason-chip p1"><span class="re">🧠</span> High stakes = <b>strong memory</b></div>
-          <div class="reason-chip p2"><span class="re">🛡️</span> Fights <b>"English avoidance"</b></div>
+        <div class="ms-body">
+          <h3>
+            <span class="num">1</span> Why this topic?
+          </h3>
+          <div class="reason-chips">
+            <div class="reason-chip p1">
+              <span class="re">💗</span> Teens actually care about concerts
+            </div>
+            <div class="reason-chip p2">
+              <span class="re">⏱️</span> One wrong word = no ticket
+            </div>
+            <div class="reason-chip p3">
+              <span class="re">🌐</span> Ticket sites are partly in English
+            </div>
+            <div class="reason-chip p4">
+              <span class="re">🚫</span> No time to translate on sale day
+            </div>
+          </div>
         </div>
       </div>
     </div>
